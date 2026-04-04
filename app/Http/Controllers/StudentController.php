@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\select;
 
 class StudentController extends Controller
 {
@@ -23,5 +24,44 @@ class StudentController extends Controller
                  return $students;
              //return view('welcome',compact('students'));
 
+    }
+
+    public function uniondata(){
+        $lecturers =DB::table('lecturers')
+                   ->select('name','email','city_name')
+                   ->join('cities','lecturers.city','=','cities.id')
+                   ->where('city_name','=','kolkata');
+        
+                   $student=DB::table('students')
+                     ->union($lecturers)
+                     ->select('name','email','city_name')
+                      ->join('cities','students.city','=','cities.id')
+                       ->where('city_name','=','patna')
+                      ->get();
+                    //  ->toSql();
+             return $student;
+    }
+
+    public function whendata(){
+        $student =DB::table('students')
+                    ->when(true,function($query){     //when like if-else chalta hai
+                        $query->where('age','>',20);
+                    },function($query){
+                        $query->where('age','<',20);
+                    })
+                ->get();
+        return $student;
+    }
+
+    public function chunkdata(){
+        $student =DB::table('students')
+        ->orderBy('id')
+        ->chunk(3, function($student){
+            echo "<div style='border:1px solid red; margin-bottom:15px;'>";
+            foreach($student as $stu){
+                echo $stu ->name . "<br>";
+            }
+            echo "</div>";
+        });
     }
 }

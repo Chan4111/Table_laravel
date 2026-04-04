@@ -1,0 +1,40 @@
+[
+    {
+        "name" : "Ramesh Thakur",
+        "email": "Ramesh@gmail.com",
+        "age":24,
+        "city": 1
+    },
+    {
+        "name" : "sonu Thakur",
+        "email": "sonu@gmail.com",
+        "age":22,
+        "city": 2
+
+    },
+    {
+        "name" : "Bola",
+        "email": "bola@gmail.com",
+        "age":25,
+        "city": 3
+    },
+     {
+        "name" : "Pankaj Thakur",
+        "email": "pankaj@gmail.com",
+        "age":24,
+        "city": 4
+    },
+    {
+        "name" : "mohit yadav",
+        "email": "yadav@gmail.com",
+        "age":22,
+        "city": 2
+
+    },
+    {
+        "name" : "ramesh Thakur",
+        "email": "ramesh@gmail.com",
+        "age":25,
+        "city": 5
+    }
+]
