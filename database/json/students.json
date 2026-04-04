@@ -1,0 +1,40 @@
+[
+    {
+        "name" : "chandan Thakur",
+        "email": "chandan@gmail.com",
+        "age":24,
+        "city": 1
+    },
+    {
+        "name" : "Mohit Thakur",
+        "email": "mohit@gmail.com",
+        "age":22,
+        "city": 2
+
+    },
+    {
+        "name" : "Ram Thakur",
+        "email": "ram@gmail.com",
+        "age":25,
+        "city": 3
+    },
+     {
+        "name" : "Kunal Thakur",
+        "email": "kunal@gmail.com",
+        "age":24,
+        "city": 4
+    },
+    {
+        "name" : "shyam Thakur",
+        "email": "shyam@gmail.com",
+        "age":22,
+        "city": 2
+
+    },
+    {
+        "name" : "Mohan Thakur",
+        "email": "mohan@gmail.com",
+        "age":25,
+        "city": 5
+    }
+]
