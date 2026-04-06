@@ -64,4 +64,31 @@ class StudentController extends Controller
             echo "</div>";
         });
     }
+
+    ///Use Of Raw Sql queries
+    public function rawStudents(){
+        // $students =DB::select("select name,age from students where id = ?",[1]);
+
+        // $students =DB::insert("insert into students(name,email,age,city)
+        //  values(?,?,?,?)",["Hum Kumar","hum@gmail.com",20,2]);
+
+        //  $students =DB::update("update students set email = 'test@gmail.com'where id=?",[7]);
+
+        // $students =DB::delete("delete from students where id=?",[7]);
+
+        $students =DB::table('students')
+                    //  ->selectRaw('name,age')
+                    //  ->whereRaw('age > 20')
+                    //  ->whereRaw('age > ? and name like ?', [20,'s%'])  ///for secure
+                    // ->orderByRaw('age DESC')
+                    //  ->orderByRaw('age,name')
+                     ->selectRaw('count(*) as student_count,age')
+                    ->groupByRaw('age')
+                     ->get();
+
+         return $students;
+        // foreach($students as $student){
+        //     echo $student->name;
+        // }
+    }
 }
