@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules\Numeric;
 use function Laravel\Prompts\select;
 
 class StudentController extends Controller
@@ -82,6 +85,7 @@ class StudentController extends Controller
                     //  ->whereRaw('age > ? and name like ?', [20,'s%'])  ///for secure
                     // ->orderByRaw('age DESC')
                     //  ->orderByRaw('age,name')
+
                      ->selectRaw('count(*) as student_count,age')
                     ->groupByRaw('age')
                      ->get();
@@ -90,5 +94,13 @@ class StudentController extends Controller
         // foreach($students as $student){
         //     echo $student->name;
         // }
+    }
+
+    //Validation
+    public function addUser(UserRequest $req){
+
+        // return $req->all();    //ese sara data return ho jata hai
+        // return $req->only(['username','usercity']);  // ab ye kewal do data return karega
+        return $req->except(['userpass','usercity']);   // yha kewal es ko chhoor ke sara data dekh skte hai
     }
 }

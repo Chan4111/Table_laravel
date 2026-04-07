@@ -14,3 +14,6 @@ Route::get('/chunk',[StudentController::class,'chunkdata']);
 
 ///user Raw Sql Queries
 Route::get('/raw',[StudentController::class,'rawStudents']);
+
+Route::view('/user','/addUser');
+Route::post('/add',[StudentController::class,'addUser'])->name('addUser');
