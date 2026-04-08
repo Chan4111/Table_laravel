@@ -17,3 +17,11 @@ Route::get('/raw',[StudentController::class,'rawStudents']);
 
 Route::view('/user','/addUser');
 Route::post('/add',[StudentController::class,'addUser'])->name('addUser');
+
+///Customer Rule of validation
+Route::view('/custom','/addUserval');
+Route::post('/customform',[StudentController::class,'addUserval'])->name('addUserval');
+
+//Cloure Method
+Route::view('/closure','/addUserCl');
+Route::post('/clouserform',[StudentController::class,'addUserval'])->name('addUserCl');
